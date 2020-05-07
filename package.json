@@ -6,12 +6,13 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js",
     "dev": "webpack-dev-server --config webpack.dev.config.js --hot",
-    "start": "node src/server.js"
+    "start": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-class-properties": "^6.24.1",

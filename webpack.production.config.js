@@ -11,7 +11,7 @@ module.exports = {
   output: {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, './dist'),
-    publicPath: '',
+    publicPath: '/static/',
   },
   mode: 'production',
   optimization: {
@@ -81,6 +81,13 @@ module.exports = {
       title: 'Kiwi',
       description: 'kiwi',
       template: 'src/pageTemplate.hbs',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      chunks: ['helloWorld'], // specified in the entry
+      title: 'Index',
+      description: 'index page',
+      template: 'src/index.hbs',
     }),
   ],
 };
