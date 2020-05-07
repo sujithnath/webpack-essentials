@@ -49,23 +49,35 @@ module.exports = {
         test: /\.hbs$/,
         use: ['handlebars-loader'],
       },
+      {
+        test: /\.(woff2|woff|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    // new CleanWebpackPlugin('dist'),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      filename: 'helloWord.html',
-      chunks: ['helloWorld', 'vendorsHelloWordKiwi~kiwi'], // specified in the entry, putting the entry into the vendor
+      filename: 'helloWorld.html',
+      chunks: ['helloWorld', 'vendorsHelloWorldKiwi~kiwi'], // specified in the entry, putting the entry into the vendor
       title: 'Hello world',
       template: 'src/pageTemplate.hbs',
       description: 'Some description',
     }),
     new HtmlWebpackPlugin({
       filename: 'kiwi.html',
-      chunks: ['kiwi', 'vendorsHelloWord~kiwi'], // specified in the entry
+      chunks: ['kiwi', 'vendorsHelloWorld~kiwi'], // specified in the entry
       title: 'Kiwi',
       description: 'kiwi',
       template: 'src/pageTemplate.hbs',

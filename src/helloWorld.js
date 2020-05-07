@@ -1,3 +1,4 @@
+import './index.scss';
 import HelloWorldButton from './components/HelloWorldButton/index.js';
 import Heading from './components/Header/index.js';
 import _ from 'lodash';

@@ -1,3 +1,4 @@
+import './index.scss';
 import Heading from './components/Header/index.js';
 import KiwiImage from './components/kiwiImage/index.js';
 import _ from 'lodash';

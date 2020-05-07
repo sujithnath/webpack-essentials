@@ -14,7 +14,7 @@ module.exports = {
   },
   mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, './dist'),
     index: 'index.html',
     port: 9000,
   },
@@ -46,17 +46,24 @@ module.exports = {
         test: /\.hbs$/,
         use: ['handlebars-loader'],
       },
+      {
+        test: /\.(woff2|woff|ttf)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
-    new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: [
-        '**/*',
-        path.join(process.cwd(), 'build/**/*'),
-      ],
-    }),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      filename: 'helloWord.html',
+      filename: 'helloWorld.html',
       chunks: ['helloWorld'], // specified in the entry, putting the entry into the vendor
       title: 'Hello world',
       template: 'src/pageTemplate.hbs',
