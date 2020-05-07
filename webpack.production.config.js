@@ -17,6 +17,8 @@ module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
+      minSize: 1000,
+      automaticNameDelimiter: '_',
     },
   },
   module: {
@@ -53,7 +55,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new CleanWebpackPlugin('./dist'),
+    // new CleanWebpackPlugin('dist'),
     new HtmlWebpackPlugin({
       filename: 'helloWord.html',
       chunks: ['helloWorld', 'vendorsHelloWordKiwi~kiwi'], // specified in the entry, putting the entry into the vendor

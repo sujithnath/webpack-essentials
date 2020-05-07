@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    helloWorld: './src/helloWord.js',
+    helloWorld: './src/helloWorld.js',
     kiwi: './src/kiwi.js',
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '',
   },
@@ -56,9 +56,18 @@ module.exports = {
       ],
     }),
     new HtmlWebpackPlugin({
+      filename: 'helloWord.html',
+      chunks: ['helloWorld'], // specified in the entry, putting the entry into the vendor
       title: 'Hello world',
       template: 'src/pageTemplate.hbs',
       description: 'Some description',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'kiwi.html',
+      chunks: ['kiwi'], // specified in the entry
+      title: 'Kiwi',
+      description: 'kiwi',
+      template: 'src/pageTemplate.hbs',
     }),
   ],
 };
