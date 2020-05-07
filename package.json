@@ -4,8 +4,8 @@
   "description": "Webpack default configurations",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.production.config.js src/index.js",
-    "dev": "webpack-dev-server --config webpack.dev.config.js src/index.js --hot"
+    "build": "webpack --config webpack.production.config.js",
+    "dev": "webpack-dev-server --config webpack.dev.config.js --hot"
   },
   "keywords": [],
   "author": "",

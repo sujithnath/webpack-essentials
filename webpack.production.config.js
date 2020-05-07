@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    helloWorld: './src/helloWord.js',
+    helloWorld: './src/helloWorld.js',
     kiwi: './src/kiwi.js',
   },
   output: {
@@ -14,6 +14,11 @@ module.exports = {
     publicPath: '',
   },
   mode: 'production',
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   module: {
     rules: [
       {
@@ -48,22 +53,17 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    new CleanWebpackPlugin({
-      cleanAfterEveryBuildPatterns: [
-        '**/*',
-        path.join(process.cwd(), 'build/**/*'),
-      ],
-    }),
+    new CleanWebpackPlugin('./dist'),
     new HtmlWebpackPlugin({
       filename: 'helloWord.html',
-      chunks: ['helloWorld'], // specified in the entry
+      chunks: ['helloWorld', 'vendorsHelloWordKiwi~kiwi'], // specified in the entry, putting the entry into the vendor
       title: 'Hello world',
       template: 'src/pageTemplate.hbs',
       description: 'Some description',
     }),
     new HtmlWebpackPlugin({
       filename: 'kiwi.html',
-      chunks: ['kiwi'], // specified in the entry
+      chunks: ['kiwi', 'vendorsHelloWord~kiwi'], // specified in the entry
       title: 'Kiwi',
       description: 'kiwi',
       template: 'src/pageTemplate.hbs',
