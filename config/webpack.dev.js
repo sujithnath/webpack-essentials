@@ -4,17 +4,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    helloWorld: './src/helloWorld.js',
-    kiwi: './src/kiwi.js',
+    helloWorld: '../src/helloWorld.js',
+    kiwi: '../src/kiwi.js',
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '../dist'),
     publicPath: '',
   },
   mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    contentBase: 'dist',
     index: 'index.html',
     port: 9000,
   },
@@ -56,6 +56,19 @@ module.exports = {
               outputPath: 'fonts/',
             },
           },
+        ],
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].html',
+            },
+          },
+          { loader: 'extract-loader' },
+          { loader: 'html-loader' },
         ],
       },
     ],

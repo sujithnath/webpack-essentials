@@ -1,0 +1,6 @@
+@font-face{font-family:'Open Sans';font-weight:400;src:url([object Module]) format("woff"),url([object Module]) format("ttf")}@font-face{font-family:'Open Sans';font-weight:300;src:url([object Module]) format("woff"),url([object Module]) format("ttf")}html body{font-family:'Open Sans', Arial, sans-serif;font-weight:300}
+
+.hello-world-button{font-size:20px;padding:7px 15px;background:green;color:#fff;outline:none}.hello-world-text{color:red;font-weight:bold}
+
+h1{color:gray}
+
