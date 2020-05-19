@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    "allowJs": true,
+    "lib": ["es5", "es6", "dom"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
