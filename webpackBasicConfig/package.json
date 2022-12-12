@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "babel-preset-stage-0": "^6.24.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "handlebars": "^4.7.6",
     "handlebars-loader": "^1.7.1",
     "lodash": "^4.17.15",
